@@ -31,7 +31,7 @@ enum custom_keycodes {
     pw_pRintersree2,
     pw_pRintersree3,
     pw_2537,
-    pw_Pinsree1
+    pw_Pinsree1,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -153,10 +153,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case pw_Pinsree1:
             if (record->event.pressed) {
-                SEND_STRING("Pinsree1\n");
+                SEND_STRING("Pinsree1");
             }
             break;
-        
+
     }
     return true;
 }
