@@ -22,10 +22,17 @@
 // };
 
 // Defines the keycodes used by our macros in process_record_user
-// enum custom_keycodes {
-//     QMKBEST = RGBLIGHT_LAYER_SEGMENTS,
-//     //QMKURL
-// };
+enum custom_keycodes {
+    QMKBEST = SAFE_RANGE,
+    QMKURL,
+    pw_printer,
+    pw_Mini8Excel,
+    pw_pRintersree1,
+    pw_pRintersree2,
+    pw_pRintersree3,
+    pw_2537,
+    pw_Pinsree1,
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
@@ -77,28 +84,63 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // }
 
 
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case QMKBEST:
+            if (record->event.pressed) {
+                // when keycode QMKBEST is pressed
+                SEND_STRING("QMK is the best thing ever!");
+            } else {
+                // when keycode QMKBEST is released
+            }
+            break;
+        case QMKURL:
+            if (record->event.pressed) {
+                // when keycode QMKURL is pressed
+                SEND_STRING("https://qmk.fm/\n");
+            } else {
+                // when keycode QMKURL is released
+            }
+            break;
+        case pw_printer:
+            if (record->event.pressed) {
+                SEND_STRING("printer\n");
+            }
+            break;
+        case pw_Mini8Excel:
+            if (record->event.pressed) {
+                SEND_STRING("Mini8Excel\n");
+            }
+            break;
+        case pw_pRintersree1:
+            if (record->event.pressed) {
+                SEND_STRING("pRintersree1\n");
+            }
+            break;
+        case pw_pRintersree2:
+            if (record->event.pressed) {
+                SEND_STRING("pRintersree1!\n");
+            }
+            break;
+        case pw_pRintersree3:
+            if (record->event.pressed) {
+                SEND_STRING("pRintersree1@\n");
+            }
+            break;
+        case pw_2537:
+            if (record->event.pressed) {
+                SEND_STRING("2537\n");
+            }
+            break;
+        case pw_Pinsree1:
+            if (record->event.pressed) {
+                SEND_STRING("Pinsree1");
+            }
+            break;
 
-// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//         case QMKBEST:
-//             if (record->event.pressed) {
-//                 // when keycode QMKBEST is pressed
-//                 SEND_STRING("QMK is the best thing ever!");
-//             } else {
-//                 // when keycode QMKBEST is released
-//             }
-//             break;
-//         case QMKURL:
-//             if (record->event.pressed) {
-//                 // when keycode QMKURL is pressed
-//                 SEND_STRING("https://qmk.fm/\n");
-//             } else {
-//                 // when keycode QMKURL is released
-//             }
-//             break;
-//     }
-//     return true;
-// }
+    }
+    return true;
+}
 
 
 // Light LEDs 6 to 9 and 12 to 15 red when caps lock is active. Hard to ignore!
