@@ -21,7 +21,7 @@ BOOTLOADER = atmel-dfu
 # BLUETOOTH_ENABLE = no       # Enable Bluetooth
 # AUDIO_ENABLE = no           # Audio output
 
-BOOTMAGIC_ENABLE = no     # Virtual DIP switch configuration
+BOOTMAGIC_ENABLE = yes     # Virtual DIP switch configuration
 MOUSEKEY_ENABLE = yes       # Mouse keys
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = no         # Console for debug
