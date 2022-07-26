@@ -1,0 +1,1 @@
+-Wl,--gc-sections -Wl,-Map=.build/bm65rgb_default.map,--cref     -lm 
