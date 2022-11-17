@@ -155,6 +155,23 @@ static bool action_mo(void) {
         underglow_rgb(0, 0, 255);
         // rgb_matrix_set_color_all(0,0,255);
         break;
+    case 7:
+
+        rgb_matrix_set_color(0, 255, 0, 0);
+
+
+
+        rgb_matrix_set_color(23, 255, 255, 0);
+
+        rgb_matrix_set_color(37, 255, 255, 0);
+        rgb_matrix_set_color(38, 255, 255, 0);
+        rgb_matrix_set_color(39, 255, 255, 0);
+
+        //rgb_matrix_set_color(30, 0, 255, 0);
+
+        underglow_rgb(0, 0, 255);
+        // rgb_matrix_set_color_all(0,0,255);
+        break;
     default: //  for any other layers, or the default layer
         // rgblight_setrgb (0x00,  0xFF, 0xFF);
         break;

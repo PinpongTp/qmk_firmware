@@ -25,22 +25,23 @@ enum custom_keycodes {
     pw_pRintersree3,
     pw_2537,
     pw_Pinsree1,
+    pw_siam,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
- [0] = LAYOUT_65_ansi(
+   [0] = LAYOUT_65_ansi(
         KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,  KC_EQL,  KC_BSPC,   KC_GRAVE,
         KC_TAB,    KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_LBRC, KC_RBRC,  KC_BSLS, KC_DEL,
-        KC_CAPS,       KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,        KC_ENT,    LT(TT(6),KC_PGUP),
+        KC_CAPS,       KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L, LT(MO(7),KC_SCLN), KC_QUOT,        KC_ENT,    LT(TT(6),KC_PGUP),
         KC_LSFT,         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,     KC_RSFT,     KC_UP,  KC_PGDN,
-        KC_LCTL,   KC_LGUI,   KC_LALT,                     KC_SPC,                         KC_RALT,   MO(1),          KC_LEFT, KC_DOWN,  KC_RGHT
+        KC_LCTL,   KC_LGUI,   KC_LALT,                     KC_SPC,                         KC_RGUI,   MO(1),          KC_LEFT, KC_DOWN,  KC_RGHT
     ),
     [1] = LAYOUT_65_ansi(  // Fn
         KC_GRAVE,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,  KC_DEL,   RGB_MOD,
         _______,   _______, KC_UP, _______, KC_WWW_REFRESH, _______, _______, _______, _______, _______, _______, _______, _______,  KC_PSCREEN, KC__VOLUP,
         _______,    KC_LEFT, KC_DOWN, KC_RGHT, KC_FIND, _______, _______, _______, _______, _______, _______, _______,       _______,    KC__VOLDOWN,
-        _______,   KC_UNDO, KC_CUT, KC_COPY, KC_PASTE,   _______, _______, KC__MUTE, _______, _______, MO(4),     TT(6),   _______,  TT(5),
+        TT(6),   KC_UNDO, KC_CUT, KC_COPY, KC_PASTE,   _______, _______, KC__MUTE, _______, _______, MO(4),     TT(6),   _______,  TT(5),
         _______,   MO(2),   TT(3),                    KC_MEDIA_PLAY_PAUSE,                         TT(3), _______, KC_WWW_BACK, _______,  KC_WWW_FORWARD
     ),
     [2] = LAYOUT_65_ansi(  // Fn + win:cmd
@@ -60,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [4] = LAYOUT_65_ansi(  // Fn + /?
         pw_pRintersree1, pw_pRintersree2, pw_pRintersree3, pw_2537, _______, _______, _______, _______, _______, _______,  _______, _______,  _______,  _______, _______,
         _______,   _______, _______, _______, _______, _______, _______, _______, _______, _______, pw_printer, _______, _______,  _______, _______,
-        _______,    _______, _______, _______, _______, _______, _______, _______, _______, pw_Pinsree1, _______, _______,       _______,    _______,
+        _______,    _______, pw_siam, _______, _______, _______, _______, _______, _______, pw_Pinsree1, _______, _______,       _______,    _______,
         _______,      _______, _______, _______, _______,   _______, _______, pw_Mini8Excel, _______, _______, _______,   _______,   _______,  _______,
         _______,   _______,   _______,                    _______,                         _______, _______,          _______, _______,  _______
     ),
@@ -76,6 +77,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,   _______, _______, _______, _______, _______, _______, KC_4, KC_5, KC_6, _______, _______, _______,  _______, _______,
         KC_ENT,    _______, _______, _______, _______, _______, _______, KC_1, KC_2, KC_3, _______, _______,       _______,    _______,
         _______,      _______, _______, _______, _______,   _______, _______, KC_0, _______, KC_DOT, _______,   _______,   _______,  _______,
+        _______,   _______,   _______,                    _______,                         _______, _______,          _______, _______,  _______
+    ),
+    [7] = LAYOUT_65_ansi(  // ; + ...
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______,  _______,  _______, _______,
+        _______,   _______, _______, _______, _______, _______, _______, _______, KC_UP, _______, _______, _______, _______,  _______, _______,
+        _______,    _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,       _______,    _______,
+        _______,      _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,     _______,   _______,  _______,
         _______,   _______,   _______,                    _______,                         _______, _______,          _______, _______,  _______
     ),
 };
@@ -134,7 +142,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("Pinsree1");
             }
             break;
-
+        case pw_siam:
+            if (record->event.pressed) {
+                SEND_STRING("Siam#0000");
+            }
+            break;
     }
     return true;
 }
