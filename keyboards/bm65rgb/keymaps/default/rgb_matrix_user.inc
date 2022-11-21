@@ -161,8 +161,7 @@ static bool action_mo(void) {
 
 
 
-        rgb_matrix_set_color(23, 255, 255, 0);
-
+        rgb_matrix_set_color(36, 255, 255, 0);
         rgb_matrix_set_color(37, 255, 255, 0);
         rgb_matrix_set_color(38, 255, 255, 0);
         rgb_matrix_set_color(39, 255, 255, 0);
