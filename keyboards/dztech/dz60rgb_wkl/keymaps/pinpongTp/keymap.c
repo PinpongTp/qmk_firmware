@@ -7,15 +7,27 @@ enum Layer {
     _ARROW,
     _NUM,
     _FUN,
-    _SYMBOL,
+    _SYM,
 };
+
+// Left-hand home row mods
+#define HOME_A LCTL_T(KC_A)
+#define HOME_S LSFT_T(KC_S)
+#define HOME_D LOPT_T(KC_D)
+#define HOME_F LGUI_T(KC_F)
+
+// Right-hand home row mods
+#define HOME_J RGUI_T(KC_J)
+#define HOME_K ROPT_T(KC_K)
+#define HOME_L RSFT_T(KC_L)
+#define HOME_SCLN RCTL_T(KC_SCLN)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MAIN] = LAYOUT_60_tsangan_hhkb(
         KC_GESC,   KC_1,  KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,        KC_MINS, KC_EQL,  KC_BSLS, KC_GRV,
         KC_TAB,    KC_Q,  KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,        KC_LBRC, KC_RBRC, KC_BSPC,
-        CTL_T(KC_ESC),KC_A, KC_S,  KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,     KC_QUOT,          KC_ENT,
-        KC_LSFT,SFT_T(KC_Z),KC_X,  KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM,KC_DOT,RSFT_T(KC_SLSH),KC_RSFT, MO(_MODE),
+        CTL_T(KC_ESC),HOME_A,HOME_S,HOME_D, HOME_F,  KC_G,    KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN,   KC_QUOT, KC_ENT,
+        KC_LSFT,LT(MO(_SYM),KC_Z),KC_X,  KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM,KC_DOT,LT(MO(_SYM),KC_SLSH),KC_RSFT, MO(_MODE),
         _______,     KC_LALT, KC_LGUI,                            KC_SPC,                         KC_RGUI,     MO(_MEDEA), _______
     ),
     [_MODE] = LAYOUT_60_tsangan_hhkb(
@@ -53,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, KC_VOLD, KC_F1,   KC_F2,   KC_F3,   KC_F13,  _______, _______,
         _______, _______, _______,                            _______,                                     _______, _______, _______
     ),
-    [_SYMBOL] = LAYOUT_60_tsangan_hhkb(
+    [_SYM] = LAYOUT_60_tsangan_hhkb(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, KC_GRV,  KC_AT  , KC_HASH, KC_QUOT, KC_CIRC, _______, KC_DQUO, KC_LBRC, KC_RBRC, KC_PERC, _______, _______, _______,
         _______, KC_EXLM, KC_MINS, KC_PLUS, KC_EQL,  _______, KC_PIPE, KC_UNDS, KC_LPRN, KC_RPRN, KC_AMPR, _______,          _______,
@@ -75,13 +87,13 @@ enum combos {
     COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
-const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
-const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM ef_combo[] = {KC_E, KC_F, COMBO_END};
+const uint16_t PROGMEM we_combo[] = {KC_W,   KC_E, COMBO_END};
+const uint16_t PROGMEM xc_combo[] = {KC_X,   KC_C, COMBO_END};
+const uint16_t PROGMEM kl_combo[] = {HOME_K, HOME_L, COMBO_END};
+const uint16_t PROGMEM io_combo[] = {KC_I,   KC_O, COMBO_END};
+const uint16_t PROGMEM sd_combo[] = {HOME_S, HOME_D, COMBO_END};
+const uint16_t PROGMEM df_combo[] = {HOME_D, HOME_F, COMBO_END};
+const uint16_t PROGMEM ef_combo[] = {KC_E,   HOME_F, COMBO_END};
 const uint16_t PROGMEM lang_combo[] = {KC_COMM,KC_DOT, COMBO_END};
 const uint16_t PROGMEM lang_a_combo[] = {KC_M,KC_COMM,KC_DOT, COMBO_END};
 
