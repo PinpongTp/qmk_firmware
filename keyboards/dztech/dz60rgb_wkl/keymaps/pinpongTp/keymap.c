@@ -67,9 +67,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_SYM] = LAYOUT_60_tsangan_hhkb(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, KC_GRV,  KC_AT  , KC_HASH, KC_QUOT, KC_CIRC, _______, KC_DQUO, KC_LBRC, KC_RBRC, KC_PERC, _______, _______, _______,
-        _______, KC_EXLM, KC_MINS, KC_PLUS, KC_EQL,  _______, KC_PIPE, KC_UNDS, KC_LPRN, KC_RPRN, KC_AMPR, _______,          _______,
-        _______, _______, KC_SLSH, KC_ASTR, KC_BSLS, _______, KC_TILD, KC_DLR,  KC_LCBR, KC_RCBR, _______, _______, _______,
+        _______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_LBRC, KC_RBRC, KC_DQUO, _______, _______, _______,
+        _______, KC_GRV,  KC_MINS, KC_PLUS, KC_EQL,  _______, _______, KC_UNDS, KC_LPRN, KC_RPRN, KC_QUOT, _______,          _______,
+        _______, _______, KC_SLSH, KC_ASTR, KC_BSLS, _______, KC_TILD, KC_PIPE, KC_LCBR, KC_RCBR, _______, _______, _______,
         _______, _______, _______,                            _______,                                     _______, _______, _______
     )
 };
