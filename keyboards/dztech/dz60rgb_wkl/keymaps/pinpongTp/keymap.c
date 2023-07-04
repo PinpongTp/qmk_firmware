@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GESC,   KC_1,  KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,        KC_MINS, KC_EQL,  KC_BSLS, KC_GRV,
         KC_TAB,    KC_Q,  KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,        KC_LBRC, KC_RBRC, KC_BSPC,
         CTL_T(KC_ESC),HOME_A,HOME_S,HOME_D, HOME_F,  KC_G,    KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN,   KC_QUOT, KC_ENT,
-        KC_LSFT,LT(MO(_SYM),KC_Z),KC_X,  KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM,KC_DOT,LT(MO(_SYM),KC_SLSH),KC_RSFT, MO(_MODE),
+        KC_LSFT,LT(_SYM,KC_Z),KC_X,  KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM,KC_DOT,LT(_SYM,KC_SLSH),KC_RSFT, MO(_MODE),
         _______,     KC_LALT, KC_LGUI,                            KC_SPC,                         KC_RGUI,     MO(_MEDEA), _______
     ),
     [_MODE] = LAYOUT_60_tsangan_hhkb(
