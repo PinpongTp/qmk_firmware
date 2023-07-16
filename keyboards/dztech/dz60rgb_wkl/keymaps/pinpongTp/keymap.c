@@ -8,6 +8,7 @@ enum Layer {
     _NUM,
     _FUN,
     _SYM,
+    _MOU,
 };
 
 // Left-hand home row mods
@@ -68,9 +69,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SYM] = LAYOUT_60_tsangan_hhkb(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_LBRC, KC_RBRC, KC_DQUO, _______, _______, _______,
-        _______, KC_GRV,  KC_PLUS, KC_MINS, KC_EQL,  _______, _______, ROPT_T(KC_UNDS), RCTL_T(KC_LPRN), RGUI_T(KC_RPRN), RSFT_T(KC_QUOT), _______,          _______,
+        _______, KC_GRV,  KC_PLUS, KC_MINS, KC_EQL,  _______, _______, KC_UNDS, KC_LPRN, KC_RPRN, KC_QUOT, _______,          _______,
         _______, _______, KC_ASTR, KC_SLSH, KC_BSLS, _______, KC_TILD, KC_PIPE, KC_LCBR, KC_RCBR, _______, _______, _______,
         _______, _______, _______,                            _______,                                     _______, _______, _______
+    ),
+    [_MOU] = LAYOUT_60_tsangan_hhkb( // by combo as
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,          _______,
+        _______, _______, _______, _______, KC_LGUI, _______, KC_BTN1, KC_BTN2, KC_ACL0, KC_ACL1, KC_ACL2, _______, _______,
+        _______, _______, _______,                            KC_BTN1,                                     _______, _______, _______
     )
 };
 
@@ -105,6 +113,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 enum combos {
     WE_ESC,
     XC_TAB,
+    LSEMI_TAB,
     KL_ENT,
     IO_DEL,
     JL_RBRC,
@@ -115,6 +124,7 @@ enum combos {
     SD_ARW,
     DF_NUM,
     EF_FUN,
+    AS_MOU,
     LANG,
     LANG_A,
     COMBO_LENGTH
@@ -123,6 +133,7 @@ enum combos {
 uint16_t COMBO_LEN = COMBO_LENGTH;
 const uint16_t PROGMEM we_combo[] = {KC_W,   KC_E, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X,   KC_C, COMBO_END};
+const uint16_t PROGMEM lscln_combo[] = {HOME_L,   HOME_SCLN, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {HOME_K, HOME_L, COMBO_END};
 const uint16_t PROGMEM io_combo[] = {KC_I,   KC_O, COMBO_END};
 const uint16_t PROGMEM jl_combo[] = {HOME_J,   HOME_L, COMBO_END};
@@ -133,12 +144,14 @@ const uint16_t PROGMEM FJ_combo[] = {HOME_F,   HOME_J, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {HOME_S, HOME_D, COMBO_END};
 const uint16_t PROGMEM df_combo[] = {HOME_D, HOME_F, COMBO_END};
 const uint16_t PROGMEM ef_combo[] = {KC_E,   HOME_F, COMBO_END};
+const uint16_t PROGMEM as_combo[] = {HOME_A,   HOME_S, COMBO_END};
 const uint16_t PROGMEM lang_combo[] = {KC_COMM,KC_DOT, COMBO_END};
 const uint16_t PROGMEM lang_a_combo[] = {KC_M,KC_COMM,KC_DOT, COMBO_END};
 
 combo_t key_combos[] = {
   [WE_ESC] = COMBO(we_combo, KC_ESC),
   [XC_TAB] = COMBO(xc_combo, KC_TAB),
+  [LSEMI_TAB] = COMBO(lscln_combo, KC_TAB),
   [KL_ENT] = COMBO(kl_combo, KC_PENT),
   [IO_DEL] = COMBO(io_combo, KC_BSPC),
   [JL_RBRC] = COMBO(jl_combo, KC_RBRC),
@@ -149,6 +162,7 @@ combo_t key_combos[] = {
   [SD_ARW] = COMBO(sd_combo, MO(_ARROW)),
   [DF_NUM] = COMBO(df_combo, MO(_NUM)),
   [EF_FUN] = COMBO(ef_combo, MO(_FUN)),
+  [AS_MOU] = COMBO(as_combo, MO(_MOU)),
   [LANG] = COMBO(lang_combo, C(KC_SPC)),
   [LANG_A] = COMBO(lang_a_combo, LCA(KC_SPC)),
 };
