@@ -11,6 +11,9 @@ enum Layer {
     _MOU,
 };
 
+#define ONESHOT_TAP_TOGGLE 1  /* Tapping this number of times holds the key until tapped once again. */
+#define ONESHOT_TIMEOUT 5000  /* Time (in ms) before the one shot key is released */
+
 // Left-hand home row mods
 #define HOME_A LSFT_T(KC_A)
 #define HOME_S LGUI_T(KC_S)
@@ -118,7 +121,7 @@ enum combos {
     IO_DEL,
     /*JL_RBRC,*/
     /*UO_RPRN,*/
-    /*SF_LBRC,*/
+    SF_CMD,
     /*WR_LPRN,*/
     FJ_CAPS,
     SD_ARW,
@@ -139,7 +142,7 @@ const uint16_t PROGMEM kl_combo[] = {HOME_K, HOME_L, COMBO_END};
 const uint16_t PROGMEM io_combo[] = {KC_I,   KC_O, COMBO_END};
 /*const uint16_t PROGMEM jl_combo[] = {HOME_J,   HOME_L, COMBO_END};*/
 /*const uint16_t PROGMEM uo_combo[] = {KC_U,   KC_O, COMBO_END};*/
-/*const uint16_t PROGMEM sf_combo[] = {HOME_S,   HOME_F, COMBO_END};*/
+const uint16_t PROGMEM sf_combo[] = {HOME_S,   HOME_F, COMBO_END};
 /*const uint16_t PROGMEM wr_combo[] = {KC_W,   KC_R, COMBO_END};*/
 const uint16_t PROGMEM FJ_combo[] = {HOME_F,   HOME_J, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {HOME_S, HOME_D, COMBO_END};
@@ -158,7 +161,7 @@ combo_t key_combos[] = {
   [IO_DEL] = COMBO(io_combo, KC_BSPC),
   /*[JL_RBRC] = COMBO(jl_combo, KC_RBRC),*/
   /*[UO_RPRN] = COMBO(uo_combo, KC_RPRN),*/
-  /*[SF_LBRC] = COMBO(sf_combo, KC_LBRC),*/
+  [SF_CMD] = COMBO(sf_combo, OSM(MOD_LGUI)),
   /*[WR_LPRN] = COMBO(wr_combo, KC_LPRN),*/
   [FJ_CAPS] = COMBO(FJ_combo, KC_CAPS),
   [SD_ARW] = COMBO(sd_combo, MO(_ARROW)),
