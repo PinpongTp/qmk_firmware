@@ -119,10 +119,10 @@ enum combos {
     LSEMI_TAB,
     KL_ENT,
     IO_DEL,
-    /*JL_RBRC,*/
-    /*UO_RPRN,*/
     SF_CMD,
-    /*WR_LPRN,*/
+    AD_SHF,
+    /*AF_OPT,*/
+    /*DF_CRL,*/
     FJ_CAPS,
     SD_ARW,
     DF_NUM,
@@ -140,10 +140,10 @@ const uint16_t PROGMEM xc_combo[] = {KC_X,   KC_C, COMBO_END};
 const uint16_t PROGMEM lscln_combo[] = {HOME_L,   HOME_SCLN, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {HOME_K, HOME_L, COMBO_END};
 const uint16_t PROGMEM io_combo[] = {KC_I,   KC_O, COMBO_END};
-/*const uint16_t PROGMEM jl_combo[] = {HOME_J,   HOME_L, COMBO_END};*/
-/*const uint16_t PROGMEM uo_combo[] = {KC_U,   KC_O, COMBO_END};*/
 const uint16_t PROGMEM sf_combo[] = {HOME_S,   HOME_F, COMBO_END};
-/*const uint16_t PROGMEM wr_combo[] = {KC_W,   KC_R, COMBO_END};*/
+const uint16_t PROGMEM ad_combo[] = {HOME_A,   HOME_D, COMBO_END};
+/*const uint16_t PROGMEM af_combo[] = {HOME_S,   HOME_F, COMBO_END};*/
+/*const uint16_t PROGMEM df_combo[] = {HOME_S,   HOME_F, COMBO_END};*/
 const uint16_t PROGMEM FJ_combo[] = {HOME_F,   HOME_J, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {HOME_S, HOME_D, COMBO_END};
 const uint16_t PROGMEM df_combo[] = {HOME_D, HOME_F, COMBO_END};
@@ -159,10 +159,8 @@ combo_t key_combos[] = {
   [LSEMI_TAB] = COMBO(lscln_combo, KC_TAB),
   [KL_ENT] = COMBO(kl_combo, KC_PENT),
   [IO_DEL] = COMBO(io_combo, KC_BSPC),
-  /*[JL_RBRC] = COMBO(jl_combo, KC_RBRC),*/
-  /*[UO_RPRN] = COMBO(uo_combo, KC_RPRN),*/
   [SF_CMD] = COMBO(sf_combo, OSM(MOD_LGUI)),
-  /*[WR_LPRN] = COMBO(wr_combo, KC_LPRN),*/
+  [SF_CMD] = COMBO(ad_combo, OSM(MOD_LSFT)),
   [FJ_CAPS] = COMBO(FJ_combo, KC_CAPS),
   [SD_ARW] = COMBO(sd_combo, MO(_ARROW)),
   [DF_NUM] = COMBO(df_combo, MO(_NUM)),
