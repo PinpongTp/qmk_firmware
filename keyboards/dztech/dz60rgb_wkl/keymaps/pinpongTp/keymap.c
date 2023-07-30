@@ -119,6 +119,7 @@ enum combos {
     _L_TAB_,
     _R_ENT_,
     JI_DEL,
+    EF_DEL,
     SF_CMD,
     AD_SHF,
     _CAPS_,
@@ -138,6 +139,7 @@ const uint16_t PROGMEM lscln_combo[] = {HOME_L,   HOME_SCLN, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {HOME_K, HOME_L, COMBO_END};
 const uint16_t PROGMEM r_tab_combo[] = {KC_U, KC_I, KC_O, HOME_SCLN, COMBO_END};
 const uint16_t PROGMEM ji_combo[] = {HOME_J, KC_I,   COMBO_END};
+const uint16_t PROGMEM ef_combo[] = {KC_E, HOME_F,   COMBO_END};
 const uint16_t PROGMEM sf_combo[] = {HOME_S,   HOME_F, COMBO_END};
 const uint16_t PROGMEM ad_combo[] = {HOME_A,   HOME_D, COMBO_END};
 const uint16_t PROGMEM cap_combo[] = {HOME_A,   HOME_SCLN, COMBO_END};
@@ -154,6 +156,7 @@ combo_t key_combos[] = {
   [_R_TAB_] = COMBO(r_tab_combo, KC_TAB),
   [_R_ENT_] = COMBO(kl_combo, KC_ENT),
   [JI_DEL] = COMBO(ji_combo, KC_BSPC),
+  [EF_DEL] = COMBO(ef_combo, KC_BSPC),
   [SF_CMD] = COMBO(sf_combo, OSM(MOD_LGUI)),
   [AD_SHF] = COMBO(ad_combo, OSM(MOD_LSFT)),
   [_CAPS_] = COMBO(cap_combo, KC_CAPS),
