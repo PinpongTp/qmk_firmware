@@ -30,7 +30,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MAIN] = LAYOUT_60_tsangan_hhkb(
         KC_GESC,   KC_1,KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,        KC_MINS, KC_EQL,  KC_BSLS, KC_GRV,
         KC_TAB,    LT(_NUM,KC_Q),  KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    LT(_NUM,KC_P),  KC_LBRC, KC_RBRC, KC_BSPC,
-        CTL_T(KC_ESC),HOME_A,HOME_S,HOME_D, HOME_F,  LT(_NUM,KC_G), KC_H,    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN,   KC_QUOT, KC_ENT,
+        CTL_T(KC_ESC),HOME_A,HOME_S,HOME_D, HOME_F,  LT(_NUM,KC_G), LT(_NUM,KC_H),    HOME_J,  HOME_K,  HOME_L,  HOME_SCLN,   KC_QUOT, KC_ENT,
         KC_LSFT,LT(_SYM,KC_Z),LT(_NUM,KC_X),  KC_C,    KC_V,    KC_B,    KC_N,    LT(_MEDEA,KC_M),  KC_COMM,LT(_NUM,KC_DOT),LT(_SYM,KC_SLSH),KC_RSFT, MO(_MEDEA),
         _______,     KC_LALT, KC_LGUI,                            KC_SPC,                         KC_RGUI,     MO(_MEDEA), _______
     ),
@@ -50,16 +50,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_ARROW] = LAYOUT_60_tsangan_hhkb( // by combo SD
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, KC_INS, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, SCMD(KC_4),G(KC_TAB), _______, _______, KC_INS, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______,      _______,
         _______, _______, _______, _______, KC_LCTL, _______, _______, KC_HOME, KC_PGUP, KC_PGDN, KC_END, _______, _______,
         _______, _______, _______,                            KC_LGUI,                                     _______, _______, _______
     ),
     [_NUM] = LAYOUT_60_tsangan_hhkb( // by combo DF
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, KC_PLUS, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,          _______,
-        _______, _______, _______, _______, _______, _______, KC_ASTR, KC_1,    KC_2,    KC_3,    _______, _______, _______,
+        _______, _______, KC_7,    KC_8,    KC_9,    _______, KC_PLUS, KC_7,    KC_8,    KC_9,    _______, _______, _______, _______,
+        _______, _______, KC_4,    KC_5,    KC_6,    _______, KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,          _______,
+        _______, _______, KC_1,    KC_2,    KC_3,    _______, KC_ASTR, KC_1,    KC_2,    KC_3,    _______, _______, _______,
         _______, _______, _______,                            KC_0,                                     _______, _______, _______
     ),
     [_FUN] = LAYOUT_60_tsangan_hhkb( // by combo EF
@@ -78,9 +78,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_MOU] = LAYOUT_60_tsangan_hhkb( // by combo as
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, _______, _______,
+        _______, _______, _______, KC_MS_U, _______, _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,          _______,
-        _______, _______, _______, _______, KC_LGUI, _______, KC_BTN3, KC_BTN2, KC_ACL0, KC_ACL1, KC_ACL2, _______, _______,
+        _______, _______, _______, KC_MS_D, KC_LGUI, _______, KC_BTN3, KC_BTN2, KC_ACL0, KC_ACL1, KC_ACL2, _______, _______,
         _______, _______, _______,                            KC_BTN1,                                     _______, _______, _______
     )
 };
@@ -118,6 +118,7 @@ enum combos {
     XC_TAB,
     _L_TAB_,
     _R_ENT_,
+    _L_ENT_,
     JI_DEL,
     EF_DEL,
     SF_CMD,
@@ -137,6 +138,7 @@ const uint16_t PROGMEM we_combo[] = {KC_W,   KC_E, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {LT(_NUM,KC_X),   KC_C, COMBO_END};
 const uint16_t PROGMEM lscln_combo[] = {HOME_L,   HOME_SCLN, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {HOME_K, HOME_L, COMBO_END};
+const uint16_t PROGMEM wd_combo[] = {KC_W, HOME_D, COMBO_END};
 const uint16_t PROGMEM r_tab_combo[] = {KC_U, KC_I, KC_O, HOME_SCLN, COMBO_END};
 const uint16_t PROGMEM ji_combo[] = {HOME_J, KC_I,   COMBO_END};
 const uint16_t PROGMEM ef_combo[] = {KC_E, HOME_F,   COMBO_END};
@@ -155,6 +157,7 @@ combo_t key_combos[] = {
   [_L_TAB_] = COMBO(lscln_combo, KC_TAB),
   [_R_TAB_] = COMBO(r_tab_combo, KC_TAB),
   [_R_ENT_] = COMBO(kl_combo, KC_ENT),
+  [_L_ENT_] = COMBO(wd_combo, KC_ENT),
   [JI_DEL] = COMBO(ji_combo, KC_BSPC),
   [EF_DEL] = COMBO(ef_combo, KC_BSPC),
   [SF_CMD] = COMBO(sf_combo, OSM(MOD_LGUI)),
